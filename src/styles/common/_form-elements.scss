@@ -1,3 +1,11 @@
+.form-control-lg {
+  height: 3.175rem;
+  padding: 0.94rem 1.94rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
 .form-group {
   .form-control-lg {
     border-radius: 0;
@@ -7,6 +15,7 @@
     color: #495057;
     background: transparent;
     border: 1px solid #ced4da;
+    font-size: 0.9375rem;
   }
   .form-control:focus {
     outline: none;
