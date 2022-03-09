@@ -1,4 +1,5 @@
-.form-control-lg {
+.form-control-lg,
+.form-select-lg {
   height: 3.175rem;
   padding: 0.94rem 1.94rem;
   font-size: 1.25rem;
@@ -7,7 +8,8 @@
 }
 
 .form-group {
-  .form-control-lg {
+  .form-control-lg,
+  .form-select-lg {
     border-radius: 0;
   }
   input,
@@ -17,12 +19,19 @@
     border: 1px solid #ced4da;
     font-size: 0.9375rem;
   }
-  .form-control:focus {
-    outline: none;
-    outline-width: 0;
-    outline-color: transparent;
-    box-shadow: none;
-    outline-style: none;
-    border: 1px solid #80bdff;
+  .form-select {
+    color: #495057;
+    font-size: 0.9375rem;
+  }
+  .form-control,
+  .form-select {
+    &:focus {
+      outline: none;
+      outline-width: 0;
+      outline-color: transparent;
+      box-shadow: none;
+      outline-style: none;
+      border: 1px solid #80bdff;
+    }
   }
 }
