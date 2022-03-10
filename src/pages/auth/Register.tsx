@@ -1,9 +1,13 @@
 import { Button } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { SelectInput } from "../../common/input/SelectInput"
 import { TextInput } from "../../common/input/TextInput"
+import { paths } from "../../routes/routes"
 import { AuthPageWrapper } from "./AuthPageWrapper"
 
 export function Register() {
+  const navigate = useNavigate()
+
   return (
     <AuthPageWrapper
       formHeading="New here?"
@@ -30,7 +34,14 @@ export function Register() {
         </div>
         <div className="text-center mt-4 font-weight-light">
           Already have an account?{" "}
-          <a href="/" className="text-primary">
+          <a
+            href="/"
+            className="text-primary"
+            onClick={(e) => {
+              e.preventDefault()
+              navigate(paths.login)
+            }}
+          >
             Login
           </a>
         </div>

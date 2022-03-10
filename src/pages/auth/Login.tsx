@@ -1,8 +1,11 @@
 import { Button } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { TextInput } from "../../common/input/TextInput"
+import { paths } from "../../routes/routes"
 import { AuthPageWrapper } from "./AuthPageWrapper"
 
 export function Login() {
+  const navigate = useNavigate()
   return (
     <AuthPageWrapper
       formHeading="Hello! let's get started"
@@ -30,7 +33,14 @@ export function Login() {
         </div>
         <div className="text-center mt-4 font-weight-light">
           Don't have an account?{" "}
-          <a href="/" className="text-primary">
+          <a
+            href="/"
+            className="text-primary"
+            onClick={(e) => {
+              e.preventDefault()
+              navigate(paths.register)
+            }}
+          >
             Create
           </a>
         </div>

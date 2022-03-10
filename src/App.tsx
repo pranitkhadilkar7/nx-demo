@@ -1,9 +1,9 @@
-import { Register } from "./pages/auth/Register"
+import { RouterConfig } from "./routes/RouteConfig"
 
 export function App() {
   return (
     <>
-      <Register />
+      <RouterConfig />
     </>
   )
 }
