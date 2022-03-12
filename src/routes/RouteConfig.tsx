@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import { PageNotFound } from "../pages/error/PageNotFound"
 import { Home } from "../pages/home/Home"
 import { RequireAuth } from "./RequireAuth"
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./routes"
@@ -29,6 +30,8 @@ export function RouterConfig() {
           element={<RequireAuth>{route.component}</RequireAuth>}
         />
       ))}
+
+    <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 }
