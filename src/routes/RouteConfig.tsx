@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import { SidebarNav } from "../nav/SidebarNav"
 import { PageNotFound } from "../pages/error/PageNotFound"
 import { Home } from "../pages/home/Home"
 import { RequireAuth } from "./RequireAuth"
@@ -27,11 +28,18 @@ export function RouterConfig() {
         <Route
           key={`${route.path}-index`}
           path={route.path}
-          element={<RequireAuth>{route.component}</RequireAuth>}
+          element={
+            <RequireAuth>
+              <div className="d-flex h-100">
+                <SidebarNav />
+                <div className="flex-grow-1 p-3 h-100">{route.component}</div>
+              </div>
+            </RequireAuth>
+          }
         />
       ))}
 
-    <Route path="*" element={<PageNotFound />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 }

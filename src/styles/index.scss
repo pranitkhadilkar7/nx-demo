@@ -5,11 +5,14 @@
 
 @import "../../node_modules/bootstrap";
 
-@import "core/utilities";
+@import "common/common";
 @import "common/form-elements";
+@import "core/utilities";
 @import "component/button";
+@import "component/checkbox-radio";
+@import "component/sidebar";
 @import "pages/login.scss";
-@import 'pages/error';
+@import "pages/error";
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
