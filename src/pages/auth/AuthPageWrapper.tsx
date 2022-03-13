@@ -10,10 +10,10 @@ type Props = {
 
 export function AuthPageWrapper({ formHeading, formText, children }: Props) {
   return (
-    <div className="pt-5 px-4">
+    <div className="py-3 px-4 h-100 overflow-auto">
       <Row>
         <Col lg={4} className="mx-auto">
-          <div className="auth-form px-5 py-5">
+          <div className="auth-form px-5 py-3">
             <div className="brand-logo">
               <img src={logo} alt="Logo" />
             </div>

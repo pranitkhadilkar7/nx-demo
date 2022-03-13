@@ -20,7 +20,7 @@ export function SidebarNav() {
         onSelect={(path) => navigate(path ?? "/")}
       >
         <Nav.Link eventKey={paths.home} className="mb-3">
-          <div className="d-flex align-items-center f-20">
+          <div className="d-flex align-items-center f-14">
             <div className="menu-icon">
               <FontAwesomeIcon icon={faHouse} />
             </div>
@@ -28,7 +28,7 @@ export function SidebarNav() {
           </div>
         </Nav.Link>
         <Nav.Link eventKey={paths.dashboard}>
-          <div className="d-flex align-items-center f-20">
+          <div className="d-flex align-items-center f-14">
             <div className="menu-icon">
               <FontAwesomeIcon icon={faChartColumn} />
             </div>
