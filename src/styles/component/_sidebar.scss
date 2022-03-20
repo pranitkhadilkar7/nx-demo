@@ -1,4 +1,30 @@
 .sidebar {
-    height: 100vh;
-    background-color: $white;
+  height: 100%;
+  background-color: $white;
+  font-weight: 500;
+  width: 14rem;
+  .brand-logo {
+    cursor: pointer;
+    img {
+      width: 10rem;
+    }
+  }
+  .nav-link {
+    text-decoration: none;
+    border-radius: 0.5rem;
+    .menu-icon {
+      margin-right: 1rem;
+    }
+    .menu-title {
+      display: inline-block;
+      line-height: 1;
+      vertical-align: middle;
+    }
+    &:hover,
+    &.active {
+      background-color: $primary;
+      border-radius: 0.5rem;
+      color: #fff;
+    }
+  }
 }
