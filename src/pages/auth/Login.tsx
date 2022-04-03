@@ -5,9 +5,13 @@ import { paths } from "../../routes/routes"
 import { AuthPageWrapper } from "./AuthPageWrapper"
 import { useForm } from "react-hook-form"
 import { LoginForm } from "./auth-type"
+import { useDispatchThunk } from "../../store/store"
+import { useEffect } from "react"
+import { fetchSomeData } from "./auth-slice"
 
 export function Login() {
   const navigate = useNavigate()
+  const dispatch = useDispatchThunk()
   const {
     register,
     handleSubmit,
@@ -19,6 +23,16 @@ export function Login() {
   function onSubmit(data: LoginForm) {
     console.log(data)
   }
+
+  useEffect(() => {
+    dispatch(fetchSomeData())
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [dispatch])
 
   return (
     <AuthPageWrapper
