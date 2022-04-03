@@ -1,7 +1,5 @@
 import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { SelectInput } from "../../common/input/SelectInput"
-import { TextInput } from "../../common/input/TextInput"
 import { paths } from "../../routes/routes"
 import { AuthPageWrapper } from "./AuthPageWrapper"
 
@@ -14,10 +12,10 @@ export function Register() {
       formText="Signing up is easy. It only takes a few steps"
     >
       <form className="pt-3">
-        <TextInput type="text" placeholder="Username" />
-        <TextInput type="email" placeholder="Email" />
+        {/* <TextInput type="text" placeholder="Username" name="Username" />
+        <TextInput type="email" placeholder="Email" name="Email" />
         <SelectInput />
-        <TextInput type="text" placeholder="Password" />
+        <TextInput type="text" placeholder="Password" name="Password" /> */}
         <div className="my-3">
           <div className="form-check">
             <label className="form-check-label text-muted">
