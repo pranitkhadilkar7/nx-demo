@@ -7,18 +7,20 @@ import {
 import { setupListeners } from "@reduxjs/toolkit/dist/query"
 import { useDispatch } from "react-redux"
 import authReducer from "../pages/auth/auth-slice"
-import { pokemonApi } from "../pages/home/home-service"
+import { api } from "../http/queryApi"
+import { apiErrorLogger } from "./api-middleware"
 
 export const store = configureStore({
   reducer: {
-    [pokemonApi.reducerPath]: pokemonApi.reducer,
+    [api.reducerPath]: api.reducer,
     authData: authReducer,
   },
   middleware: [
     ...getDefaultMiddleware({
       serializableCheck: false,
     }),
-    pokemonApi.middleware,
+    api.middleware,
+    apiErrorLogger,
   ],
   devTools: process.env.NODE_ENV !== "production",
 })

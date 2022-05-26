@@ -1,21 +1,14 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { SidebarNav } from "../nav/SidebarNav"
 import { PageNotFound } from "../pages/error/PageNotFound"
-import { Home } from "../pages/home/Home"
 import { RequireAuth } from "./RequireAuth"
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./routes"
 
 export function RouterConfig() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <RequireAuth>
-            <Home />
-          </RequireAuth>
-        }
-      />
+      <Route path="/" element={<Navigate to="/home" replace />} />
+
       {PUBLIC_ROUTES.map((route, index) => (
         <Route
           key={`${route.path}-index`}
