@@ -1,5 +1,5 @@
 import { api } from "../../http/queryApi"
-import { RegisterForm } from "./auth-type"
+import { LoginForm, LoginResponse, RegisterForm } from "./auth-type"
 
 const authService = api.injectEndpoints({
   endpoints: (build) => ({
@@ -10,7 +10,14 @@ const authService = api.injectEndpoints({
         body,
       }),
     }),
+    login: build.mutation<LoginResponse, LoginForm>({
+      query: (body) => ({
+        url: "/auth/login",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useRegisterMutation } = authService
+export const { useRegisterMutation, useLoginMutation } = authService

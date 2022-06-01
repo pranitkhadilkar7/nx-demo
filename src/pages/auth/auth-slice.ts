@@ -1,5 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { RootState } from "../../store/store"
 import { post } from "../../http/instanceMethods"
+import {
+  getAuthTokenFromLocal,
+  setAuthTokenAtLocal,
+} from "../../utils/storage-utils"
+import { getUserDetails } from "./auth-helper"
+import { LoginResponse } from "./auth-type"
 
 const name = "auth"
 
@@ -20,9 +27,28 @@ export const fetchSomeData = createAsyncThunk(
 
 export const slice = createSlice({
   name,
-  initialState: {},
-  reducers: {},
+  initialState: {
+    user: getUserDetails(getAuthTokenFromLocal()),
+  },
+  reducers: {
+    resetUserData: (state) => {
+      state.user = {
+        email: "",
+        userId: 0,
+        username: "",
+        iat: 0,
+        exp: 0,
+        accessToken: "",
+      }
+    },
+    setUserData: (state, action: PayloadAction<LoginResponse>) => {
+      state.user = getUserDetails(action.payload)
+      setAuthTokenAtLocal(action.payload)
+    },
+  },
   extraReducers: {},
 })
 
+export const { setUserData, resetUserData } = slice.actions
+export const authState = (state: RootState) => state.authData
 export default slice.reducer

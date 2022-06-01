@@ -5,6 +5,9 @@ import { paths } from "../../routes/routes"
 import { AuthPageWrapper } from "./AuthPageWrapper"
 import { useForm } from "react-hook-form"
 import { LoginForm } from "./auth-type"
+import { useLoginMutation } from "./auth-service"
+import { useDispatch } from "react-redux"
+import { setUserData } from "./auth-slice"
 
 export function Login() {
   const navigate = useNavigate()
@@ -15,9 +18,16 @@ export function Login() {
   } = useForm<LoginForm>({
     mode: "onChange",
   })
+  const [login] = useLoginMutation()
+  const dispatch = useDispatch()
 
   function onSubmit(data: LoginForm) {
-    console.log(data)
+    login(data)
+      .unwrap()
+      .then((res) => {
+        dispatch(setUserData(res))
+        navigate(paths.home)
+      })
   }
 
   return (
@@ -29,10 +39,10 @@ export function Login() {
         <TextInput
           type="email"
           placeholder="Email"
-          name="userEmail"
+          name="email"
           register={register}
           required
-          hasError={!!errors.userEmail}
+          hasError={!!errors.email}
         />
         <TextInput
           type="password"
