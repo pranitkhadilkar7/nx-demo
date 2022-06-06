@@ -1,0 +1,8 @@
+.react-flow__node {
+  border: 1px solid black;
+  border-radius: 10px;
+  &.selected {
+    background-color: #eee;
+    border: 2px solid black;
+  }
+}

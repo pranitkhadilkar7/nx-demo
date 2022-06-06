@@ -25,7 +25,9 @@ export function RouterConfig() {
             <RequireAuth>
               <div className="d-flex h-100">
                 <SidebarNav />
-                <div className="flex-grow-1 p-3 h-100">{route.component}</div>
+                <div className="d-flex flex-column flex-grow-1 p-3">
+                  {route.component}
+                </div>
               </div>
             </RequireAuth>
           }
