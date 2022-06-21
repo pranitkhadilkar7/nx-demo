@@ -70,6 +70,16 @@ export const slice = createSlice({
       })
       state.nodes = updatedNodes
     },
+    onNodeAdd: (state) => {
+      const nodes = [...state.nodes]
+      nodes.push({
+        id: "3",
+        type: "startNode",
+        data: { label: "Start" },
+        position: { x: 5, y: 5 },
+      })
+      state.nodes = nodes
+    },
   },
 })
 
@@ -78,6 +88,7 @@ export const {
   onEdgesChange,
   onConnect,
   onChangeSelectNodeData,
+  onNodeAdd,
 } = slice.actions
 export const workflowData = (state: RootState) => state.workflowData
 export default slice.reducer

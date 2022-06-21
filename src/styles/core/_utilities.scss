@@ -39,6 +39,11 @@ a {
   &:hover {
     text-decoration: underline;
   }
+  &.dropdown-item {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .bg-primary {
