@@ -7,6 +7,7 @@ import {
 import { setupListeners } from "@reduxjs/toolkit/dist/query"
 import { useDispatch } from "react-redux"
 import authReducer from "../pages/auth/auth-slice"
+import workflowReducer from "../pages/workflow/workflow-slice"
 import { api } from "../http/queryApi"
 import { apiErrorLogger } from "./api-middleware"
 
@@ -14,6 +15,7 @@ export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
     authData: authReducer,
+    workflowData: workflowReducer,
   },
   middleware: [
     ...getDefaultMiddleware({

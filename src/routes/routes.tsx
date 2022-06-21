@@ -2,6 +2,7 @@ import { Login } from "../pages/auth/Login"
 import { Register } from "../pages/auth/Register"
 import { Dashboard } from "../pages/dashboard/Dashboard"
 import { Home } from "../pages/home/Home"
+import { CreateWorkflow } from "../pages/workflow/CreateWorkflow"
 import { RouteData } from "./routeType"
 
 export const paths = {
@@ -9,6 +10,7 @@ export const paths = {
   register: "/register",
   home: "/home",
   dashboard: "/dashboard",
+  workflow: "/workflow",
 }
 
 export const PUBLIC_ROUTES: RouteData[] = [
@@ -30,5 +32,9 @@ export const PRIVATE_ROUTES: RouteData[] = [
   {
     path: paths.dashboard,
     component: <Dashboard />,
+  },
+  {
+    path: paths.workflow,
+    component: <CreateWorkflow />,
   },
 ]

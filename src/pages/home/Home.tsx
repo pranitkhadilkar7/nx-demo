@@ -1,3 +1,11 @@
+import { useSelector } from "react-redux"
+import { authState } from "../auth/auth-slice"
+
 export function Home() {
-  return <h1>Home</h1>
+  const { user } = useSelector(authState)
+  return (
+    <div>
+      <h1>Hello, {user.username}!!!</h1>
+    </div>
+  )
 }
