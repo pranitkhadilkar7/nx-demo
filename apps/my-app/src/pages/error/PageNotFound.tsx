@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
 export function PageNotFound() {
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ export function PageNotFound() {
             className="text-white font-weight-medium"
             onClick={(e) => {
               e.preventDefault()
-              navigate("/home", { replace: true })
+              navigate('/home', { replace: true })
             }}
           >
             Back to home
