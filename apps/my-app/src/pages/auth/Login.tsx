@@ -1,13 +1,13 @@
-import { Button } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
-import { TextInput } from "../../common/input/TextInput"
-import { paths } from "../../routes/routes"
-import { AuthPageWrapper } from "./AuthPageWrapper"
-import { useForm } from "react-hook-form"
-import { LoginForm } from "./auth-type"
-import { useLoginMutation } from "./auth-service"
-import { useDispatch } from "react-redux"
-import { setUserData } from "./auth-slice"
+import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { TextInput } from '../../common/input/TextInput'
+import { paths } from '../../routes/routes'
+import { AuthPageWrapper } from './AuthPageWrapper'
+import { useForm } from 'react-hook-form'
+import { LoginForm } from './auth-type'
+import { useLoginMutation } from './auth-service'
+import { useDispatch } from 'react-redux'
+import { setUserData } from './auth-slice'
 
 export function Login() {
   const navigate = useNavigate()
@@ -16,12 +16,13 @@ export function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>({
-    mode: "onChange",
+    mode: 'onChange',
   })
   const [login] = useLoginMutation()
   const dispatch = useDispatch()
 
   function onSubmit(data: LoginForm) {
+    console.log(data)
     login(data)
       .unwrap()
       .then((res) => {
@@ -70,7 +71,7 @@ export function Login() {
           </a>
         </div>
         <div className="text-center mt-4 font-weight-light">
-          Don't have an account?{" "}
+          Don't have an account?{' '}
           <a
             href="/"
             className="text-primary"
